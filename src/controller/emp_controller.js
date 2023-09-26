@@ -16,7 +16,7 @@ const empAdd =  async (req, res) => {
         console.log('data', data);
         await emp.create(data);
         let msg = { 'msg': "emp created"};
-        res.send(msg);
+        res.status(200).send(msg);
 
     } catch (error){
         res.status(500).send(error.message);
