@@ -2,12 +2,16 @@ const express = require('express')
 const app = express()
 const emp = require('./src/router/emp_router');
 const product = require('./src/router/product_router')
+const customer = require('./src/router/constomer_router');
+
 
 app.use(express.json());
 const mongose = require("mongoose");
 
 app.use('/emp',emp);
 app.use('/product', product);
+app.use('/customer', customer);
+
 
 app.get('/', function (req, res) {
   res.send('Hello World')
