@@ -12,4 +12,14 @@ const custAdd =  async (req, res) => {
     }
 }
 
-module.exports = {custAdd};
+const getCust = async(req, res) =>  {
+    try {
+
+        let data = await cust.find({});
+        res.status(200).send(data);
+    } catch (error){
+        res.status(500).send(error.message);
+    }
+}
+
+module.exports = {custAdd, getCust};

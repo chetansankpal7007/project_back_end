@@ -3,7 +3,7 @@ const app = express()
 const emp = require('./src/router/emp_router');
 const product = require('./src/router/product_router')
 const customer = require('./src/router/constomer_router');
-
+const follow_up = require('./src/router/follow_up_router');
 
 app.use(express.json());
 const mongose = require("mongoose");
@@ -11,6 +11,7 @@ const mongose = require("mongoose");
 app.use('/emp',emp);
 app.use('/product', product);
 app.use('/customer', customer);
+app.use('/follow-up', follow_up);
 
 
 app.get('/', function (req, res) {
