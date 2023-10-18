@@ -19,7 +19,7 @@ const custSchema = mongoose.Schema(
             rrequired : false
         },
         p_id: {
-            type: Number,
+            type: String,
             rrequired : [ true , "Please Select Product"]
         },
         p_name: {
@@ -31,7 +31,7 @@ const custSchema = mongoose.Schema(
             rrequired : [ true , "Please Enter Price"]
         },
         e_id: {
-            type: Number,
+            type: String,
             rrequired : [ true , "Please Select Emp"]
         },
         e_name: {

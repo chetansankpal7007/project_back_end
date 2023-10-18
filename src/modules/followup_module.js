@@ -7,7 +7,7 @@ const follow_upShema = mongoose.Schema(
             required: [true, "Please Enter Follow up id"]
         }, 
         c_id : {
-            type: Number,
+            type: String,
             required: [true, "Please Select Customer"]
         },
         f_date: {
