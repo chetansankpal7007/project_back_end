@@ -22,4 +22,13 @@ const getCust = async(req, res) =>  {
     }
 }
 
-module.exports = {custAdd, getCust};
+const getCustById = async(req, res) =>  {
+    try {
+        let data = await cust.findById(req.body.id);
+        res.status(200).send(data);
+    } catch (error){
+        res.status(500).send(error.message);
+    }
+}
+
+module.exports = {custAdd, getCust, getCustById};

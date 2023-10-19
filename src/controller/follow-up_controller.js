@@ -24,8 +24,18 @@ const follow_up_Add =  async (req, res) => {
 }
 
 
+const getFollowUpByCust = async (req, res) => {
+    try {
+        const follow_up_list = await follow_up.find({c_id: req.body.c_id});
+        res.status(200).json(follow_up_list);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
 
 module.exports = {
     getFollowUp,
-    follow_up_Add
+    follow_up_Add,
+    getFollowUpByCust
 }
