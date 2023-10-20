@@ -33,9 +33,25 @@ const getFollowUpByCust = async (req, res) => {
     }
 }
 
+const updateFollowUp = async (req, res) => {
+    try {
+        let data = req.body;
+        let isupdate = await follow_up.findByIdAndUpdate(data._id, data);
+         if(isupdate) {
+            let resJson = {msg: "Follow up updated"}
+            res.status(200).send(resJson);
+        }else {            
+            let resJson = {msg: "Follow up not updated"}
+            res.status(400).send(resJson);
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
 
 module.exports = {
     getFollowUp,
     follow_up_Add,
-    getFollowUpByCust
+    getFollowUpByCust,
+    updateFollowUp
 }

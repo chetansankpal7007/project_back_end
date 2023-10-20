@@ -31,4 +31,19 @@ const getCustById = async(req, res) =>  {
     }
 }
 
-module.exports = {custAdd, getCust, getCustById};
+const getCustByEMP = async(req, res) =>  {
+    try {
+        if(req.body.role == 'admin') {
+            let data = await cust.find({});
+            res.status(200).send(data);
+        } else {
+            let data = await cust.find({e_id: req.body._id});
+            res.status(200).send(data);
+        }
+       
+    } catch (error){
+        res.status(500).send(error.message);
+    }
+}
+
+module.exports = {custAdd, getCust, getCustById, getCustByEMP};
